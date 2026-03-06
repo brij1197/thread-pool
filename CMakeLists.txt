@@ -36,8 +36,15 @@ target_compile_options(threadpool PRIVATE
 option(THREADPOOL_BUILD_EXAMPLES "Build example programs" ON)
 if(THREADPOOL_BUILD_EXAMPLES)
     add_executable(basic_usage examples/basic_usage.cpp)
-    target_link_libraries(example PRIVATE threadpool)
+    target_link_libraries(basic_usage PRIVATE threadpool)
 
-    add_executable(parallel_transform examples/parallel_transform.cpp)
-    target_link_libraries(parallel_transform PRIVATE threadpool)
+    # add_executable(parallel_transform examples/parallel_transform.cpp)
+    # target_link_libraries(parallel_transform PRIVATE threadpool)
+endif()
+
+#   Tests
+option(THREADPOOL_BUILD_TESTS "Build tests" ON)
+if(THREADPOOL_BUILD_TESTS)
+    enable_testing()
+    add_subdirectory(tests)
 endif()
