@@ -66,7 +66,7 @@ int main() {
 
     // Collect results
     for (int i = 0; i < 100; ++i) {
-        std::cout << results[i].get() << "\n";
+        std::cout << results[i].get() << std::endl;
     }
 
     return 0;
@@ -83,7 +83,7 @@ int main() {
 | `shutdown()` | Signal stop and join all threads |
 | `size()` | Number of worker threads |
 | `pending()` | Number of queued (not yet started) tasks |
-| `is_shutdown()` | Whether `shutdown()` has been called |
+| `isShutdown()` | Whether `shutdown()` has been called |
 
 ## Project Structure
 
