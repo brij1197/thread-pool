@@ -67,7 +67,7 @@ public:
   //  Synchronization
 
   /// Block until all tasks have completed and the pool is idle
-  void wait();
+  void wait_all();
 
   /// Stop accepting new tasks and shutdown the pool after completing pending
   /// tasks
