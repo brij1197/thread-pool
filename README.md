@@ -1,11 +1,11 @@
 # ThreadPool
 
-A modern **C++17 thread pool** library — lightweight, header-friendly, and production-style.
+A modern **C++17 thread pool** library.
 
 ```
 ┌────────────┐     ┌──────────────┐     ┌─────────────┐
-│ Client Code │────▶│  Task Queue   │────▶│ Worker Threads│
-│  submit(fn) │    │  (mutex + cv) │    │  (N threads)  │
+│ Client Code│────▶│  Task Queue  │────▶│Worker Thread│
+│  submit(fn)│     │  (mutex + cv)│     │ (N threads) │
 └────────────┘     └──────────────┘     └─────────────┘
         ▲                                       │
         └──────── std::future<T> ◀──────────────┘
@@ -103,11 +103,3 @@ thread-pool/
 └── .github/workflows/
     └── ci.yml                  # CI pipeline
 ```
-
-## Extending (Stretch Goals)
-
-- **Priority queue** — `submit_priority(priority, f, args...)`
-- **Task DAG scheduler** — define dependencies between tasks
-- **Lock-free queue** — replace `std::queue + mutex` with a ring buffer
-- **Dynamic resizing** — grow/shrink thread count at runtime
-- **Work stealing** — per-thread queues with stealing for better locality
