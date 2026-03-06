@@ -19,7 +19,7 @@ target_link_libraries(tests
 )
 
 target_compile_options(tests PRIVATE
-    $<$<CXX_COMPILER_ID:GNU,Clang, AppleClang>:-Wall -Wextra -Wpedantic>
+    $<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:-Wall -Wextra -Wpedantic>
 )
 
 #   Register with CTest
