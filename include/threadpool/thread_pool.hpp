@@ -1,5 +1,6 @@
 #pragma once
 
+#include <atomic>
 #include <condition_variable>
 #include <cstddef>
 #include <functional>
@@ -31,7 +32,7 @@ private:
   std::condition_variable
       done_cv_; // waiters wait on this when all tasks are done
 
-  bool stop_{false};
+  std::atomic<bool> stop_{false};
   std::size_t active_{0}; // number of tasks currently being processed
 
 public:
@@ -95,4 +96,4 @@ auto ThreadPool::submit(Func &&func, Args &&...args)
   return result;
 }
 
-} // namespace tp
+}
